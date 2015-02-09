@@ -1,0 +1,22 @@
+[0m[[0minfo[0m] [0mscalastyle using config /home/knoldus/workspace/knolx/scalastyle-config.xml[0m
+[0m[[0mdebug[0m] [0mStarting scalastyle[0m
+[0m[[0mdebug[0m] [0mstart file /home/knoldus/workspace/knolx/src/main/scala/com/knol/db/connection/DBConnection.scala[0m
+[0m[[0mdebug[0m] [0mend file /home/knoldus/workspace/knolx/src/main/scala/com/knol/db/connection/DBConnection.scala[0m
+[0m[[0mdebug[0m] [0mstart file /home/knoldus/workspace/knolx/src/main/scala/com/knol/core/SessionRepo.scala[0m
+[0m[[0mdebug[0m] [0mend file /home/knoldus/workspace/knolx/src/main/scala/com/knol/core/SessionRepo.scala[0m
+[0m[[0mdebug[0m] [0mstart file /home/knoldus/workspace/knolx/src/main/scala/com/knol/core/KnolRepo.scala[0m
+[0m[[0mdebug[0m] [0mend file /home/knoldus/workspace/knolx/src/main/scala/com/knol/core/KnolRepo.scala[0m
+[0m[[0mdebug[0m] [0mstart file /home/knoldus/workspace/knolx/src/main/scala/com/knol/core/impl/KnolRepoImpl.scala[0m
+[0m[[0mdebug[0m] [0mend file /home/knoldus/workspace/knolx/src/main/scala/com/knol/core/impl/KnolRepoImpl.scala[0m
+[0m[[0mdebug[0m] [0mstart file /home/knoldus/workspace/knolx/src/main/scala/com/knol/core/impl/SessionRepoImpl.scala[0m
+[0m[[0mdebug[0m] [0mend file /home/knoldus/workspace/knolx/src/main/scala/com/knol/core/impl/SessionRepoImpl.scala[0m
+[0m[[0mdebug[0m] [0mstart file /home/knoldus/workspace/knolx/src/main/scala/com/knol/core/impl/KnolSessionRepoImpl.scala[0m
+[0m[[0mdebug[0m] [0mend file /home/knoldus/workspace/knolx/src/main/scala/com/knol/core/impl/KnolSessionRepoImpl.scala[0m
+[0m[[0mdebug[0m] [0mstart file /home/knoldus/workspace/knolx/src/main/scala/com/knol/core/KnolSessionRepo.scala[0m
+[0m[[0mdebug[0m] [0mend file /home/knoldus/workspace/knolx/src/main/scala/com/knol/core/KnolSessionRepo.scala[0m
+[0m[[0minfo[0m] [0mProcessed 7 file(s)[0m
+[0m[[0minfo[0m] [0mFound 0 errors[0m
+[0m[[0minfo[0m] [0mFound 0 warnings[0m
+[0m[[0minfo[0m] [0mFound 0 infos[0m
+[0m[[0minfo[0m] [0mFinished in 5 ms[0m
+[0m[[32msuccess[0m] [0mcreated output: /home/knoldus/workspace/knolx/target[0m

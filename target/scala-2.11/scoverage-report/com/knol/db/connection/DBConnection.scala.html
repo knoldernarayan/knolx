@@ -1,0 +1,478 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          com/knol/db/connection/DBConnection.scala.html
+        </title>
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"/>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.18.3/addons/pager/jquery.tablesorter.pager.min.js"></script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier;'>1 <span style=''>package com.knol.db.connection
+</span>2 <span style=''>import com.typesafe.config.ConfigFactory
+</span>3 <span style=''>import java.sql.DriverManager
+</span>4 <span style=''>import org.slf4j.LoggerFactory
+</span>5 <span style=''>/**
+</span>6 <span style=''> * This is database connection traits which is use for database connection.
+</span>7 <span style=''> */
+</span>8 <span style=''>trait DBConnection {
+</span>9 <span style=''>  val config = </span><span style='background: #AEF1AE'>ConfigFactory.load()</span><span style=''>
+</span>10 <span style=''>  val url = </span><span style='background: #AEF1AE'>config.getString("db.url")</span><span style=''>;
+</span>11 <span style=''>  val user = </span><span style='background: #AEF1AE'>config.getString("db.username")</span><span style=''>;
+</span>12 <span style=''>  val password = </span><span style='background: #AEF1AE'>config.getString("db.password")</span><span style=''>;
+</span>13 <span style=''>  val driver = </span><span style='background: #AEF1AE'>config.getString("db.driver")</span><span style=''>
+</span>14 <span style=''>  val logger = </span><span style='background: #AEF1AE'>LoggerFactory.getLogger(this.getClass)</span><span style=''>
+</span>15 <span style=''>  /**
+</span>16 <span style=''>   * This is one of the method of DBConnection trait which return connection object.
+</span>17 <span style=''>   */
+</span>18 <span style=''>  def getConnection(): Option[java.sql.Connection] =
+</span>19 <span style=''>    {
+</span>20 <span style=''>      try {
+</span>21 <span style=''>        </span><span style='background: #AEF1AE'>Class.forName(driver)
+</span>22 <span style=''></span><span style='background: #AEF1AE'>        val connection = DriverManager.getConnection(url, user, password)
+</span>23 <span style=''></span><span style='background: #AEF1AE'>        logger.debug("Connection created")
+</span>24 <span style=''></span><span style='background: #AEF1AE'>        Some(connection)</span><span style=''>
+</span>25 <span style=''>      } catch {
+</span>26 <span style=''>        case e: Exception =>
+</span>27 <span style=''>          </span><span style='background: #F0ADAD'>e.printStackTrace()</span><span style=''>;
+</span>28 <span style=''>          </span><span style='background: #F0ADAD'>logger.error("Error in creating connection", e)</span><span style=''>
+</span>29 <span style=''>          </span><span style='background: #F0ADAD'>None</span><span style=''>
+</span>30 <span style=''>      }
+</span>31 <span style=''>    }
+</span>32 <span style=''>}
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          9
+        </td>
+        <td>
+          279
+        </td>
+        <td>
+          253
+          -
+          273
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          com.typesafe.config.ConfigFactory.load
+        </td>
+        <td style="background: #AEF1AE">
+          com.typesafe.config.ConfigFactory.load()
+        </td>
+      </tr><tr>
+        <td>
+          10
+        </td>
+        <td>
+          280
+        </td>
+        <td>
+          286
+          -
+          312
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          com.typesafe.config.Config.getString
+        </td>
+        <td style="background: #AEF1AE">
+          DBConnection.this.config.getString(&quot;db.url&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          11
+        </td>
+        <td>
+          281
+        </td>
+        <td>
+          327
+          -
+          358
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          com.typesafe.config.Config.getString
+        </td>
+        <td style="background: #AEF1AE">
+          DBConnection.this.config.getString(&quot;db.username&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          12
+        </td>
+        <td>
+          282
+        </td>
+        <td>
+          377
+          -
+          408
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          com.typesafe.config.Config.getString
+        </td>
+        <td style="background: #AEF1AE">
+          DBConnection.this.config.getString(&quot;db.password&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          13
+        </td>
+        <td>
+          283
+        </td>
+        <td>
+          425
+          -
+          454
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          com.typesafe.config.Config.getString
+        </td>
+        <td style="background: #AEF1AE">
+          DBConnection.this.config.getString(&quot;db.driver&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          14
+        </td>
+        <td>
+          285
+        </td>
+        <td>
+          470
+          -
+          508
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.slf4j.LoggerFactory.getLogger
+        </td>
+        <td style="background: #AEF1AE">
+          org.slf4j.LoggerFactory.getLogger(this.getClass())
+        </td>
+      </tr><tr>
+        <td>
+          14
+        </td>
+        <td>
+          284
+        </td>
+        <td>
+          494
+          -
+          507
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Object.getClass
+        </td>
+        <td style="background: #AEF1AE">
+          this.getClass()
+        </td>
+      </tr><tr>
+        <td>
+          20
+        </td>
+        <td>
+          294
+        </td>
+        <td>
+          685
+          -
+          848
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          {
+  java.this.lang.Class.forName(DBConnection.this.driver);
+  val connection: java.sql.Connection = java.sql.DriverManager.getConnection(DBConnection.this.url, DBConnection.this.user, DBConnection.this.password);
+  DBConnection.this.logger.debug(&quot;Connection created&quot;);
+  scala.Some.apply[java.sql.Connection](connection)
+}
+        </td>
+      </tr><tr>
+        <td>
+          21
+        </td>
+        <td>
+          286
+        </td>
+        <td>
+          699
+          -
+          705
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          com.knol.db.connection.DBConnection.driver
+        </td>
+        <td style="background: #AEF1AE">
+          DBConnection.this.driver
+        </td>
+      </tr><tr>
+        <td>
+          21
+        </td>
+        <td>
+          287
+        </td>
+        <td>
+          685
+          -
+          706
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Class.forName
+        </td>
+        <td style="background: #AEF1AE">
+          java.this.lang.Class.forName(DBConnection.this.driver)
+        </td>
+      </tr><tr>
+        <td>
+          22
+        </td>
+        <td>
+          289
+        </td>
+        <td>
+          765
+          -
+          769
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          com.knol.db.connection.DBConnection.user
+        </td>
+        <td style="background: #AEF1AE">
+          DBConnection.this.user
+        </td>
+      </tr><tr>
+        <td>
+          22
+        </td>
+        <td>
+          288
+        </td>
+        <td>
+          760
+          -
+          763
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          com.knol.db.connection.DBConnection.url
+        </td>
+        <td style="background: #AEF1AE">
+          DBConnection.this.url
+        </td>
+      </tr><tr>
+        <td>
+          22
+        </td>
+        <td>
+          291
+        </td>
+        <td>
+          732
+          -
+          780
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.DriverManager.getConnection
+        </td>
+        <td style="background: #AEF1AE">
+          java.sql.DriverManager.getConnection(DBConnection.this.url, DBConnection.this.user, DBConnection.this.password)
+        </td>
+      </tr><tr>
+        <td>
+          22
+        </td>
+        <td>
+          290
+        </td>
+        <td>
+          771
+          -
+          779
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          com.knol.db.connection.DBConnection.password
+        </td>
+        <td style="background: #AEF1AE">
+          DBConnection.this.password
+        </td>
+      </tr><tr>
+        <td>
+          23
+        </td>
+        <td>
+          292
+        </td>
+        <td>
+          789
+          -
+          823
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.slf4j.Logger.debug
+        </td>
+        <td style="background: #AEF1AE">
+          DBConnection.this.logger.debug(&quot;Connection created&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          24
+        </td>
+        <td>
+          293
+        </td>
+        <td>
+          832
+          -
+          848
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Some.apply
+        </td>
+        <td style="background: #AEF1AE">
+          scala.Some.apply[java.sql.Connection](connection)
+        </td>
+      </tr><tr>
+        <td>
+          27
+        </td>
+        <td>
+          295
+        </td>
+        <td>
+          904
+          -
+          923
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Throwable.printStackTrace
+        </td>
+        <td style="background: #F0ADAD">
+          e.printStackTrace()
+        </td>
+      </tr><tr>
+        <td>
+          28
+        </td>
+        <td>
+          296
+        </td>
+        <td>
+          935
+          -
+          982
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.slf4j.Logger.error
+        </td>
+        <td style="background: #F0ADAD">
+          DBConnection.this.logger.error(&quot;Error in creating connection&quot;, e)
+        </td>
+      </tr><tr>
+        <td>
+          29
+        </td>
+        <td>
+          297
+        </td>
+        <td>
+          993
+          -
+          997
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          scala.None
+        </td>
+        <td style="background: #F0ADAD">
+          scala.None
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>

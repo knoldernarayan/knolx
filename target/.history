@@ -1,0 +1,10 @@
+compile
+run
+clean
+compile
+exit
+reload
+compile
+eclipse
+sbt eclipse
+exit
